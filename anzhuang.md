@@ -37,13 +37,16 @@ php artisan migrate
 php artisan db:seed --class=LaravelAdminApiSeeder
 ```
 
+> 注意,若果填充出现`Class LaravelAdminApiSeeder does not exist `报错。则执行`composer dump-autoload`后再重新执行填充命令即可
+
+
 ## 配置
 
 ### 登录验证
 > `config/auth.php`
 ```
 'guards' => [
-    'admin.api' => [
+    'admin_api' => [
         'driver' => 'session',
         'provider' => 'admin_api_users',
     ],

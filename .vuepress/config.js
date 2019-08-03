@@ -11,13 +11,15 @@ module.exports = {
     themeConfig: {
         nav:[ // 导航栏配置
         {
-            text: '主页',
+            text: '使用文档',
             items: [
               { text: '安装', link: '/anzhuang' },
               { text: '中间件', link: '/zhognjianjian' },
+              { text: '快速上手', link: '/shangshou' },
               { text: '版本', link: '/banben' }
             ]
           },
+        {text: 'API文档', link: 'https://www.eolinker.com/#/share/index?shareCode=KUgsLJ'},
         {text: 'GITHUB', link: 'https://github.com/qq2504021719/Laravel-admin-api'}      
         ],
         sidebar: 'auto', // 侧边栏配置
