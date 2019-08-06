@@ -19,7 +19,13 @@ module.exports = {
               { text: '版本', link: '/banben' }
             ]
           },
-        {text: 'API文档', link: 'https://www.eolinker.com/#/share/index?shareCode=KUgsLJ'},
+        {
+            text: 'API文档',
+            items: [
+              { text: 'API文档', link: 'https://www.eolinker.com/#/share/index?shareCode=KUgsLJ' },
+              { text: 'API文档离线文件', link: '/eolinker' },
+            ]
+        },
         {text: 'GITHUB', link: 'https://github.com/qq2504021719/Laravel-admin-api'}      
         ],
         sidebar: 'auto', // 侧边栏配置
