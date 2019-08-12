@@ -19,7 +19,7 @@ use Illuminate\Routing\Router;
 use \Illuminate\Support\Facades\Route;
 
 Route::group([
-	'prefix'        => config('admin-api.route.prefix'),
+    'prefix'        => config('admin-api.route.prefix'),
     'middleware'    => [
         'web',
         'admin.api.auth', // 登录验证
@@ -27,10 +27,21 @@ Route::group([
         'admin.api.verify.xss' // xss过滤
     ],
 ],function (Router $router){
-    // 测试
-    $router->get('admin_api_test',function (){
-        echo 'admin_api_test';
+
+    // 新建路由测试-修改管理员对应权限
+    $router->get('admin_api_test_up',function (){
+        $request = new \Illuminate\Http\Request();
+        $request->merge([
+            'name'=>'新建路由测试',
+            'id'=>17,
+            'route_name' => config('admin-api.route.prefix').'/admin_api_test',
+            'role' => [], // 添加角色
+//            'role' => [2]  // 删除角色
+        ]);
+        $permission = new \Pl\LaravelAdminApi\Repository\PermissionRepository();
+        dd($permission->permission_up($request));
     });
+
     /**
      * 商品管理
      */
@@ -39,7 +50,10 @@ Route::group([
             'admin.api.role.permission' // 权限验证
         ],
     ],function (Router $router){
-
+        // 新建路由测试
+        $router->get('admin_api_test',function (){
+            echo 'admin_api_test';
+        });
     });
 });
 
@@ -62,7 +76,10 @@ protected function mapAdminApiRoutes()
 ```
 
 ### 3.验证
-> 访问`域名/admin_api_test`后，打开数据库，查看`操作日志表`,就能看到访问记录了。这里用户默认配置了登录，所有当前是登录了用户的。下一小节会说到用户模拟登录
+
+- 1.访问`域名/admin_api_test`后，打开数据库，查看`操作日志表`,就能看到访问记录了。这里用户默认配置了登录，所有当前是登录了用户的。下一小节会说到用户模拟登录
+- 2.可以配置模拟用户为2，通过访问`admin_api_test_up`路由，添加或删除`管理员`的`新建路由测试`权限，来权限是否生效
+
 
 ## 用户登录模拟
 > `config/admin-api.php`，产考注释配置即可
