@@ -16,6 +16,7 @@ module.exports = {
               { text: '安装', link: '/anzhuang' },
               { text: '中间件', link: '/zhognjianjian' },
               { text: '快速上手', link: '/shangshou' },
+              { text: 'API代码模板生成', link: '/apimoban' },
               { text: '版本', link: '/banben' }
             ]
           },

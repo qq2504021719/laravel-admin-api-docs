@@ -5,6 +5,11 @@ sidebar: auto
 
 > 版本升级迭代增加或修改逻辑文档备注
 
+## `0.2`
+- 1.后台API代码模板快速生成
+- 2.返回方法更新
+
+
 ## `0.1.1`
 - 1.完成`spatie/laravel-permission`和`mews/purifier`配置文件发布
 - 2.完成模拟数据填充
