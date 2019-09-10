@@ -102,6 +102,16 @@ protected function mapAdminApiRoutes()
 
 ```
 
+### 1.默认账号密码
+
+
+名称 | 账号 | 密码
+---|---|---
+系统管理员 | admin | 123456
+管理员 | admin1 | 123456
+
+
+
 ## 角色权限
 
 > 默认有两个用户，`系统管理员`和`管理员`。
@@ -112,12 +122,12 @@ protected function mapAdminApiRoutes()
 - 2.系统管理员
 > 具有`系统管理员`角色,能访问所有接口
 
-### 注意
+### 1.注意
 - 1.用户权限，角色一定得通过`管理员修改`和`管理员添加`接口来操作，因为权限验证有缓存
 - 2.添加权限的时候,`route_name`字段得是路由全路径，例如接口地址是`域名/aaaa/bbbb`,那字段的值就得是`aaaa/bbbb`
 
 
-### 管理员验证
+### 2.管理员验证
 
 > 配置用户模拟的`user=2`为`管理员`
 
@@ -168,7 +178,7 @@ protected function mapAdminApiRoutes()
 }
 ```
 
-### 系统管理员验证
+### 3.系统管理员验证
 
 > 配置用户模拟的`user=1`为`系统管理员`
 
@@ -207,4 +217,15 @@ protected function mapAdminApiRoutes()
 		"total": 2
 	}
 }
+```
+
+## 全局返回
+
+> 会发布`Success.php`到`App\Http\`目录下，在这里定义状态码和对应的返回值。一个状态码对应一个返回值。方便报错后快速定位
+
+- 示例
+```
+use App\Http\Success;
+
+return Success::success_v2(Success::success,$data = []);
 ```

@@ -32,6 +32,11 @@ php artisan vendor:publish --provider="Pl\LaravelAdminApi\LaravelAdminApiProvide
 php artisan migrate
 ```
 
+### 更新 composer
+``` 
+composer dump-autoload
+```
+
 ### 数据填充
 ```
 php artisan db:seed --class=LaravelAdminApiSeeder
@@ -74,7 +79,7 @@ protected $except = [
 >`Handler.php`
 ```
 use Illuminate\Validation\ValidationException;
-use Pl\LaravelAdminApi\success;
+use App\Http\Success;
 
 public function render($request, Exception $exception)
 {
@@ -82,7 +87,7 @@ public function render($request, Exception $exception)
     if($exception instanceof ValidationException)
     {
         $error = array_collapse($exception->errors());
-        success::success($error,$error[0],success::info);
+        return Success::success_v2(success::params,$error[0]);
 
     }
     ......
