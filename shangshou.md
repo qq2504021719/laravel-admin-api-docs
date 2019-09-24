@@ -8,6 +8,17 @@ sidebar: auto
 
 > 安装并配置好所有的环境
 
+
+## 全局返回
+
+> 在文件`Success.php`中定义返回状态码及内容
+
+```php
+use App\Http\Success;
+
+return Success::success_v2(Success::success,[]);
+```
+
 ## 路由
 
 ### 1.新建文件

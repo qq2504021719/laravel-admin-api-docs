@@ -94,3 +94,32 @@ public function render($request, Exception $exception)
     return parent::render($request, $exception);
 }
 ```
+
+### 后台API文件快速生成
+
+- 创建
+```
+php artisan make:admin-api Admin/Base/Gift 1 model=App/Models/Admin/Gift
+
+# 会自动创建如下的文件
+文件创建成功: app/Http/Controllers/Admin/Base/GiftController.php (控制器)
+文件创建成功: app/Http/Requests/Admin/Base/GiftRequest.php (公共参数验证文件)
+文件创建成功: app/Repository/Admin/Base/GiftRepository.php (仓库，逻辑操作)
+
+路由模板:
+$router->post('foo-bar-b-list','GiftTestController@GiftTestList');    // list
+$router->post('foo-bar-b-deta','GiftTestController@GiftTestDeta');    // 详情
+$router->post('foo-bar-b-add','GiftTestController@GiftTestAdd');      // 添加
+$router->post('foo-bar-b-up','GiftTestController@GiftTestUp');        // 修改
+$router->post('foo-bar-b-de','GiftTestController@GiftTestDe');        // 删除
+```
+
+- 删除
+```
+php artisan make:admin-api Admin/Base/Gift 2 model=App/Models/Admin/Gift
+
+# 成功删除
+文件删除成功: app/Http/Controllers/Admin/Base/TestController.php
+文件删除成功: app/Http/Requests/Admin/Base/TestRequest.php
+文件删除成功: app/Repository/Admin/Base/TestRepository.php
+```
