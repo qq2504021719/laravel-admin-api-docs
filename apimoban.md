@@ -13,6 +13,13 @@ php artisan make:admin-api Admin/Base/Gift 1 model=App/Models/Admin/Gift
 文件创建成功: app/Http/Controllers/Admin/Base/GiftController.php
 文件创建成功: app/Http/Requests/Admin/Base/GiftRequest.php
 文件创建成功: app/Repository/Admin/Base/GiftRepository.php
+
+路由模板:
+$router->post('foo-bar-b-list','GiftTestController@GiftTestList');    // list
+$router->post('foo-bar-b-deta','GiftTestController@GiftTestDeta');    // 详情
+$router->post('foo-bar-b-add','GiftTestController@GiftTestAdd');      // 添加
+$router->post('foo-bar-b-up','GiftTestController@GiftTestUp');        // 修改
+$router->post('foo-bar-b-de','GiftTestController@GiftTestDe');        // 删除
 ```
 
 ### `GiftController.php`
