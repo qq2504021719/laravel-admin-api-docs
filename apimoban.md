@@ -29,7 +29,16 @@ $router->post('foo-bar-b-de','GiftTestController@GiftTestDe');        // 删除
 
 ### `GiftRequest.php`
 
-> 主要是添加和修改的公共参数的验证
+> 主要是添加和修改的公共参数的验证，可编辑字段添加。表示只用这些字段可以添加和修改
+
+```php
+/**
+ * 添加可编辑字段
+ * @var array
+ */
+private $field = [
+];
+```
 
 
 ### `GiftRepository.php`

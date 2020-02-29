@@ -19,12 +19,19 @@ module.exports = {
               { text: 'API代码模板生成', link: '/apimoban' },
               { text: '版本', link: '/banben' }
             ]
-          },
+        },
         {
             text: 'API文档',
             items: [
               { text: 'API文档', link: 'https://www.eolinker.com/#/share/index?shareCode=KUgsLJ' },
               { text: 'API文档离线文件', link: '/eolinker' },
+            ]
+        },
+        {
+          text: '常用方法类',
+            items: [
+              { text: '常用方法', link: '/changyon/commonlyusedfunction' },
+              { text: 'Excel操作类', link: '/changyon/excelactivyty' }
             ]
         },
         {text: 'GITHUB', link: 'https://github.com/qq2504021719/Laravel-admin-api'}      
